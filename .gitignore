@@ -1,5 +1,7 @@
 _translation_cache_th.json
 *.html
 *.tmp
+*.bak
+__pycache__/
 .DS_Store
 Thumbs.db
