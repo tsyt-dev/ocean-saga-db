@@ -1,6 +1,6 @@
 {
   "export_version": "2.0",
-  "exported_at": "2026-11-27T23:54:48.229711",
+  "exported_at": "2026-11-28T01:52:10.876304",
   "account_label": "New ID (Updated 2026-11-27)",
   "game": "Ocean Saga",
   "source_database": "https://guragon.com/ocean-saga/characters",
@@ -118,17 +118,30 @@
   "user_owned_characters": [
     {
       "name": "Boa Lilith",
-      "stars": 9,
+      "stars": 10,
       "count": 1,
       "tier": "T0",
-      "extra_5star_copies": 1
+      "extra_5star_copies": 2
     },
     {
       "name": "Ace & Sabo",
       "stars": 6,
       "count": 1,
-      "extra_5star_copies": 2,
+      "extra_5star_copies": 5,
       "tier": "SSS"
+    },
+    {
+      "name": "Shirahoshi",
+      "stars": 5,
+      "count": 1,
+      "tier": "SSS"
+    },
+    {
+      "name": "Kaido Hybrid",
+      "stars": 7,
+      "count": 1,
+      "tier": "S",
+      "extra_5star_copies": 4
     },
     {
       "name": "Jinbe Wano",
@@ -138,31 +151,52 @@
       "extra_5star_copies": 1
     },
     {
-      "name": "Kaido Hybrid",
-      "stars": 6,
-      "count": 1,
-      "tier": "S"
-    },
-    {
       "name": "Brook Wano",
       "stars": 5,
       "count": 1,
-      "tier": "S"
+      "tier": "S",
+      "extra_5star_copies": 1
     },
     {
       "name": "Luffy Wano",
       "stars": 5,
       "count": 1,
-      "tier": "S"
+      "tier": "S",
+      "extra_5star_copies": 1
     },
     {
       "name": "Whitebeard",
       "stars": 5,
       "count": 1,
+      "tier": "S",
+      "extra_5star_copies": 1
+    },
+    {
+      "name": "Yamato",
+      "stars": 5,
+      "count": 1,
       "tier": "S"
     },
     {
+      "name": "Blackbeard",
+      "stars": 5,
+      "count": 1,
+      "tier": "A"
+    },
+    {
+      "name": "Chopper N.W",
+      "stars": 5,
+      "count": 1,
+      "tier": "A"
+    },
+    {
       "name": "Law N.W",
+      "stars": 5,
+      "count": 1,
+      "tier": "A"
+    },
+    {
+      "name": "Nami Wano",
       "stars": 5,
       "count": 1,
       "tier": "A"
@@ -177,27 +211,39 @@
       "name": "Uta",
       "stars": 5,
       "count": 1,
-      "tier": "A"
+      "tier": "A",
+      "extra_5star_copies": 1
     },
     {
       "name": "Doflamingo",
       "stars": 6,
       "count": 1,
-      "tier": "B",
-      "extra_5star_copies": 1
+      "tier": "B"
     },
     {
       "name": "Kid Wano",
       "stars": 6,
       "count": 1,
-      "tier": "B",
-      "extra_5star_copies": 1
+      "tier": "B"
+    },
+    {
+      "name": "Big Mom",
+      "stars": 5,
+      "count": 1,
+      "tier": "B"
     },
     {
       "name": "Carina",
       "stars": 5,
       "count": 1,
       "tier": "B"
+    },
+    {
+      "name": "Kin emon",
+      "stars": 5,
+      "count": 1,
+      "tier": "B",
+      "extra_5star_copies": 1
     },
     {
       "name": "King",
@@ -225,8 +271,8 @@
       "tier": "D"
     },
     {
-      "name": "Hancock",
-      "stars": 6,
+      "name": "Akainu",
+      "stars": 5,
       "count": 1,
       "tier": "D"
     },
@@ -234,16 +280,11 @@
       "name": "Aokiji",
       "stars": 5,
       "count": 1,
-      "tier": "D"
+      "tier": "D",
+      "extra_5star_copies": 3
     },
     {
       "name": "Benn Beckman",
-      "stars": 5,
-      "count": 1,
-      "tier": "D"
-    },
-    {
-      "name": "Burgess",
       "stars": 5,
       "count": 1,
       "tier": "D"
@@ -253,6 +294,26 @@
       "stars": 5,
       "count": 1,
       "tier": "D"
+    },
+    {
+      "name": "Enel",
+      "stars": 5,
+      "count": 1,
+      "tier": "D",
+      "extra_5star_copies": 1
+    },
+    {
+      "name": "Franky N.W",
+      "stars": 5,
+      "count": 1,
+      "tier": "D"
+    },
+    {
+      "name": "Hancock",
+      "stars": 5,
+      "count": 1,
+      "tier": "D",
+      "extra_5star_copies": 3
     },
     {
       "name": "Ichiji",
@@ -270,7 +331,8 @@
       "name": "Kaido",
       "stars": 5,
       "count": 1,
-      "tier": "D"
+      "tier": "D",
+      "extra_5star_copies": 1
     },
     {
       "name": "Kizaru",
@@ -279,25 +341,28 @@
       "tier": "D"
     },
     {
-      "name": "Kuma",
+      "name": "Luffy SM",
       "stars": 5,
-      "count": 2,
-      "tier": "D"
+      "count": 1,
+      "tier": "D",
+      "extra_5star_copies": 1
     },
     {
       "name": "Magellan",
       "stars": 5,
       "count": 1,
-      "tier": "D"
-    },
-    {
-      "name": "Mihawk",
-      "stars": 5,
-      "count": 1,
-      "tier": "D"
+      "tier": "D",
+      "extra_5star_copies": 2
     },
     {
       "name": "Queen",
+      "stars": 5,
+      "count": 1,
+      "tier": "D",
+      "extra_5star_copies": 1
+    },
+    {
+      "name": "Raizo",
       "stars": 5,
       "count": 1,
       "tier": "D"
@@ -312,43 +377,59 @@
       "name": "Sanji N.W",
       "stars": 5,
       "count": 1,
-      "tier": "D"
+      "tier": "D",
+      "extra_5star_copies": 1
     },
     {
       "name": "Zoro N.W",
       "stars": 5,
       "count": 1,
-      "tier": "D"
+      "tier": "D",
+      "extra_5star_copies": 1
+    },
+    {
+      "name": "Burgess",
+      "stars": 5,
+      "count": 1,
+      "tier": "Other",
+      "extra_5star_copies": 1
+    },
+    {
+      "name": "Kuma",
+      "stars": 5,
+      "count": 1,
+      "tier": "Other",
+      "extra_5star_copies": 1
     }
   ],
   "recommended_team_new_id": {
-    "name": "ทีมหลักแนะนำ — ID ใหม่ (สมดุลขั้นสุด เล่นได้ทุกโหมด)",
+    "name": "ทีมหลักแนะนำ — แผน 1: God Meta (พลัง 2 ตัวละคร SSS + T0 แข็งแกร่งที่สุดในแพตช์ปัจจุบัน)",
     "front_line": [
       "Jinbe Wano",
-      "Luffy Wano"
+      "Kaido Hybrid"
     ],
     "back_line": [
       "Boa Lilith",
+      "Shirahoshi",
       "Ace & Sabo",
-      "Brook Wano",
-      "Kaido Hybrid"
+      "Brook Wano"
     ],
     "speed_order": [
       "Boa Lilith",
+      "Shirahoshi",
       "Ace & Sabo",
-      "Brook Wano",
       "Kaido Hybrid",
-      "Jinbe Wano",
-      "Luffy Wano"
+      "Brook Wano",
+      "Jinbe Wano"
     ],
     "upgrade_priority": [
       "Ace & Sabo",
+      "Kaido Hybrid",
       "Boa Lilith",
       "Jinbe Wano",
-      "Brook Wano",
-      "Kaido Hybrid",
-      "Luffy Wano"
+      "Shirahoshi",
+      "Brook Wano"
     ],
-    "boss_pve_flex_sub": "Whitebeard (replace Luffy Wano for Shock end-of-round boss damage)"
+    "boss_pve_flex_sub": "Whitebeard (replace Brook Wano or Kaido Hybrid for Shock 750% ATK end-of-round boss damage)"
   }
 }
