@@ -1,0 +1,72 @@
+{
+  "export_version": "2.0",
+  "exported_at": "2026-11-27T16:36:00+07:00",
+  "account_label": "New ID (Updated 2026-11-27)",
+  "game": "Ocean Saga",
+  "source_database": "https://guragon.com/ocean-saga/characters",
+  "total_characters_in_db": 237,
+  "total_skills_in_db": 815,
+  "language": "th",
+  "files_in_folder": [
+    "characters_en.json",
+    "characters_en.csv",
+    "characters_th.json",
+    "characters_th.csv",
+    "analysis_results.json",
+    "Real_Tier_List.png",
+    "Ocean_Saga_Tier_List_TH.pdf",
+    "Ocean_Saga_NewID_Team_TH.pdf",
+    "Ocean_Saga_NewID_Team_TH.png",
+    "Ocean_Saga_AI_Context_Export.md",
+    "Ocean_Saga_AI_Context_Export.json"
+  ],
+  "ai_instructions": [
+    "Use real_tier_list as the primary meta reference for the user's current server patch (Ace & Sabo + Boa Lilith era).",
+    "Use user_owned_characters (New ID) with star levels and duplicate counts when recommending builds or upgrades.",
+    "Standard formation is 6 heroes: 2 Front-line and 4 Back-line.",
+    "Refer to characters_th.json for full stats and Thai skill descriptions."
+  ],
+  "real_tier_list": {
+    "T0_new_after_image": ["Boa Lilith"],
+    "SSS": ["Ace & Sabo", "Luffy Nika", "Shirahoshi"],
+    "S": ["Kaido Hybrid", "Jinbe Wano", "Yamato", "Brook Wano", "Whitebeard", "Katakuri", "Luffy Wano"],
+    "A": ["Robin Wano", "Uta", "Nami N.W", "Blackbeard", "Usop Wano", "Chopper N.W", "Nami Wano", "Sanji Vinsmoke", "Reiju", "Law N.W", "Zoro Wano", "Hidden Black Sanji", "Oden", "Shanks"],
+    "B": ["Rayleigh", "Bullet", "Law Wano", "Usopp N.W", "Kid Wano", "Luffy N.W", "Doflamingo", "Carina", "Nekomamushi", "Big Mom", "Kin emon", "Yonko Buggy", "Robin N.W", "King"],
+    "D": ["Luffy SM", "Benn Beckman", "Carrot", "Queen", "Mecha Franky", "Niji", "Raizo", "Franky N.W", "Capone Bege", "Jack", "Cracker", "Brook N.W", "Enel", "Crocodile", "Magellan", "Akainu", "Mihawk", "Kaido", "Inuarashi", "Hancock", "Aokiji", "Luffy BM", "Fujitora", "Sanji N.W", "Law", "Ichiji", "Ace", "Zoro N.W", "Yasopp", "Marco", "Sabo", "Sengoku", "Kizaru"]
+  },
+  "user_owned_characters": [
+    {"name": "Ace & Sabo", "stars": 6, "count": 1, "extra_5star_copies": 1, "tier": "SSS"},
+    {"name": "Boa Lilith", "stars": 6, "count": 1, "tier": "T0"},
+    {"name": "Kaido Hybrid", "stars": 5, "count": 1, "tier": "S"},
+    {"name": "Jinbe Wano", "stars": 5, "count": 1, "tier": "S"},
+    {"name": "Brook Wano", "stars": 5, "count": 1, "tier": "S"},
+    {"name": "Whitebeard", "stars": 5, "count": 1, "tier": "S"},
+    {"name": "Luffy Wano", "stars": 5, "count": 1, "tier": "S"},
+    {"name": "Usop Wano", "stars": 5, "count": 1, "tier": "A"},
+    {"name": "Law N.W", "stars": 5, "count": 1, "tier": "A"},
+    {"name": "Usopp N.W", "stars": 5, "count": 1, "tier": "B"},
+    {"name": "Kid Wano", "stars": 5, "count": 1, "tier": "B"},
+    {"name": "Carina", "stars": 5, "count": 1, "tier": "B"},
+    {"name": "King", "stars": 5, "count": 1, "tier": "B"},
+    {"name": "Jack", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Sanji N.W", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Sabo", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Queen", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Ichiji", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Carrot", "stars": 5, "count": 2, "tier": "D"},
+    {"name": "Magellan", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Burgess", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Kaido", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Zoro N.W", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Hancock", "stars": 5, "count": 1, "tier": "D"},
+    {"name": "Kuma", "stars": 5, "count": 2, "tier": "D"}
+  ],
+  "recommended_team_new_id": {
+    "name": "ทีมหลักแนะนำ — ID ใหม่ (สมดุลขั้นสุด เล่นได้ทุกโหมด)",
+    "front_line": ["Jinbe Wano", "Luffy Wano"],
+    "back_line": ["Boa Lilith", "Ace & Sabo", "Brook Wano", "Kaido Hybrid"],
+    "speed_order": ["Boa Lilith", "Ace & Sabo", "Brook Wano", "Kaido Hybrid", "Jinbe Wano", "Luffy Wano"],
+    "upgrade_priority": ["Ace & Sabo", "Boa Lilith", "Jinbe Wano", "Brook Wano", "Kaido Hybrid", "Luffy Wano"],
+    "boss_pve_flex_sub": "Whitebeard (replace Luffy Wano for Shock end-of-round boss damage)"
+  }
+}
