@@ -235,7 +235,7 @@ class OceanSagaRosterApp(tk.Tk):
         self.load_export_data()
 
         # Keyboard shortcuts
-        self.bind("<Control-s>", lambda e: self.save_all())
+        self.bind("<Control-s>", lambda e: self.git_update_all())
         self.bind("<Control-n>", lambda e: self.add_character())
         self.bind("<F5>", lambda e: self.reload_all())
         self.bind("<Delete>", lambda e: self.delete_character())
@@ -290,7 +290,7 @@ class OceanSagaRosterApp(tk.Tk):
 
         subtitle_label = tk.Label(
             header_frame, 
-            text="จัดการ ID ปัจจุบัน (เพิ่ม / แก้ไข / ลบ) เฉพาะระดับ SS และบันทึกอัปเดตไฟล์ Context ทันที", 
+            text="จัดการ ID ปัจจุบัน (เพิ่ม / แก้ไข / ลบ) บันทึกอัตโนมัติทันที พร้อมปุ่มอัปเดต / ดึงข้อมูล Git ทั้งโฟลเดอร์", 
             font=("Segoe UI", 9), 
             fg="#94a3b8", 
             bg="#0f172a"
@@ -335,8 +335,7 @@ class OceanSagaRosterApp(tk.Tk):
         ttk.Button(toolbar, text="🗑️ ลบ (Delete)", command=self.delete_character).pack(side=tk.LEFT, padx=(0, 6))
 
         # Right-side Toolbar Buttons
-        ttk.Button(toolbar, text="🔄 รีโหลด (Reload)", command=self.reload_all).pack(side=tk.RIGHT, padx=(6, 0))
-        ttk.Button(toolbar, text="🌐 Git Pull", command=self.git_pull).pack(side=tk.RIGHT)
+        ttk.Button(toolbar, text="🔄 รีโหลดจากเครื่อง", command=self.reload_all).pack(side=tk.RIGHT, padx=(6, 0))
 
         # 3. Treeview Table Frame
         table_frame = ttk.Frame(self, padding=(16, 0, 16, 10))
@@ -387,23 +386,39 @@ class OceanSagaRosterApp(tk.Tk):
         self.tree.tag_configure("D", background="#f1f5f9")
         self.tree.tag_configure("Other", background="#ffffff")
 
-        # 4. Bottom Save Bar
+        # 4. Bottom Action Bar
         bottom_frame = ttk.Frame(self, padding=(16, 10, 16, 8))
         bottom_frame.pack(fill=tk.X, side=tk.BOTTOM)
 
-        # Git Auto-Push Checkbox
-        self.git_sync_var = tk.BooleanVar(value=True)
-        self.git_check = ttk.Checkbutton(
-            bottom_frame, 
-            text="🚀 ซิงก์ Git อัตโนมัติ (Commit & Push ขึ้น GitHub หลังกดบันทึก)", 
-            variable=self.git_sync_var
-        )
-        self.git_check.pack(side=tk.LEFT, padx=(0, 20))
-
-        # Big Save Button
-        save_btn = tk.Button(
+        # Pull Button: Replace all local files with Git data
+        pull_btn = tk.Button(
             bottom_frame,
-            text="💾 บันทึกข้อมูลลงไฟล์ทันที (Save to Files)",
+            text="⬇️ ดึงข้อมูล Git (แทนที่ไฟล์ในเครื่องทั้งโฟลเดอร์)",
+            font=("Segoe UI", 10, "bold"),
+            bg="#0284c7",
+            fg="#ffffff",
+            activebackground="#0369a1",
+            activeforeground="#ffffff",
+            relief=tk.RAISED,
+            padx=16,
+            pady=8,
+            cursor="hand2",
+            command=self.git_pull_replace_all
+        )
+        pull_btn.pack(side=tk.LEFT, padx=(0, 15))
+
+        auto_hint = tk.Label(
+            bottom_frame,
+            text="⚡ บันทึกอัตโนมัติ: บันทึกลงไฟล์ทันทีทุกครั้งที่มีการเพิ่ม / แก้ไข / ลบ",
+            font=("Segoe UI", 9),
+            fg="#047857"
+        )
+        auto_hint.pack(side=tk.LEFT)
+
+        # Push Button: Update entire folder to Git
+        update_git_btn = tk.Button(
+            bottom_frame,
+            text="🚀 อัปเดต Git ทั้งโฟลเดอร์ (Push ขึ้น GitHub)",
             font=("Segoe UI", 11, "bold"),
             bg="#10b981",
             fg="#ffffff",
@@ -413,12 +428,12 @@ class OceanSagaRosterApp(tk.Tk):
             padx=20,
             pady=8,
             cursor="hand2",
-            command=self.save_all
+            command=self.git_update_all
         )
-        save_btn.pack(side=tk.RIGHT)
+        update_git_btn.pack(side=tk.RIGHT)
 
         # 5. Status Bar
-        self.status_var = tk.StringVar(value="พร้อมใช้งาน (กด Ctrl+S เพื่อบันทึก)")
+        self.status_var = tk.StringVar(value="พร้อมใช้งาน (ระบบบันทึกอัตโนมัติลงไฟล์ทุกครั้งที่มีการแก้ไข)")
         status_bar = tk.Label(
             self, 
             textvariable=self.status_var, 
@@ -546,12 +561,15 @@ class OceanSagaRosterApp(tk.Tk):
             if existing:
                 if messagebox.askyesno("พบตัวละครเดิม", f"'{new_char['name']}' มีอยู่ในรายการอยู่แล้ว ต้องการอัปเดตข้อมูลทับหรือไม่?"):
                     existing.update(new_char)
+                else:
+                    return
             else:
                 self.roster.append(new_char)
 
             self.apply_filter()
             self.update_stats()
-            self.status_var.set(f"เพิ่มตัวละคร '{new_char['name']}' เรียบร้อย (อย่าลืมกดบันทึก)")
+            self.auto_save()
+            self.status_var.set(f"เพิ่ม '{new_char['name']}' และบันทึกอัตโนมัติเรียบร้อย")
 
     def edit_selected(self):
         selected = self.tree.selection()
@@ -571,7 +589,8 @@ class OceanSagaRosterApp(tk.Tk):
             char_data.update(dlg.result)
             self.apply_filter()
             self.update_stats()
-            self.status_var.set(f"แก้ไข '{char_name}' เรียบร้อย (อย่าลืมกดบันทึก)")
+            self.auto_save()
+            self.status_var.set(f"แก้ไข '{char_name}' และบันทึกอัตโนมัติเรียบร้อย")
 
     def delete_character(self):
         selected = self.tree.selection()
@@ -586,7 +605,8 @@ class OceanSagaRosterApp(tk.Tk):
             self.roster = [c for c in self.roster if c["name"] != char_name]
             self.apply_filter()
             self.update_stats()
-            self.status_var.set(f"ลบ '{char_name}' ออกจากรายการแล้ว (อย่าลืมกดบันทึก)")
+            self.auto_save()
+            self.status_var.set(f"ลบ '{char_name}' และบันทึกอัตโนมัติเรียบร้อย")
 
     def reload_all(self):
         if messagebox.askyesno("ยืนยันรีโหลด", "ต้องการโหลดข้อมูลเดิมจากไฟล์ทับข้อมูลปัจจุบันหรือไม่? (การแก้ไขที่ยังไม่ได้บันทึกจะหายไป)"):
@@ -652,15 +672,14 @@ class OceanSagaRosterApp(tk.Tk):
 
         return "\n".join(lines) + "\n"
 
-    def save_all(self):
-        """Save to JSON & MD, then trigger Git Sync if enabled."""
+    def auto_save(self):
+        """Automatically save to JSON & MD files."""
         now = datetime.datetime.now()
         iso_now = now.isoformat()
         thai_now = format_thai_date(now)
 
         # 1. Update JSON
         try:
-            # Backup JSON
             if os.path.exists(EXPORT_JSON_PATH):
                 shutil.copy2(EXPORT_JSON_PATH, EXPORT_JSON_PATH + ".bak")
 
@@ -676,8 +695,8 @@ class OceanSagaRosterApp(tk.Tk):
             with open(EXPORT_JSON_PATH, "w", encoding="utf-8") as f:
                 json.dump(self.export_json_data, f, ensure_ascii=False, indent=2)
         except Exception as e:
-            messagebox.showerror("Error", f"ไม่สามารถบันทึก {EXPORT_JSON_PATH}:\n{e}")
-            return
+            self.status_var.set(f"❌ บันทึก JSON ผิดพลาด: {e}")
+            return False
 
         # 2. Update MD Section 4
         try:
@@ -693,59 +712,91 @@ class OceanSagaRosterApp(tk.Tk):
                 if re.search(pattern, md_content, re.DOTALL):
                     updated_md = re.sub(pattern, new_sec4, md_content, flags=re.DOTALL)
                 else:
-                    # Append if pattern somehow missing
                     updated_md = md_content + "\n\n" + new_sec4
 
                 with open(EXPORT_MD_PATH, "w", encoding="utf-8") as f:
                     f.write(updated_md)
         except Exception as e:
-            messagebox.showerror("Error", f"ไม่สามารถบันทึก {EXPORT_MD_PATH}:\n{e}")
+            self.status_var.set(f"❌ บันทึก MD ผิดพลาด: {e}")
+            return False
+
+        self.status_var.set(f"💾 บันทึกอัตโนมัติเรียบร้อย ({now.strftime('%H:%M:%S')})")
+        return True
+
+    def git_update_all(self):
+        """Save latest changes, stage entire folder, commit, and push to GitHub."""
+        self.auto_save()
+        now = datetime.datetime.now()
+        self.status_var.set("กำลังอัปเดต Git ทั้งโฟลเดอร์ขึ้น GitHub...")
+
+        def _push_worker():
+            try:
+                summary = f"Update entire repository and roster ({len(self.roster)} characters, {format_thai_date(now)})"
+                # Stage all files in repository
+                subprocess.run(["git", "add", "-A"], cwd=BASE_DIR, check=True)
+                # Commit
+                res = subprocess.run(["git", "commit", "-m", summary], cwd=BASE_DIR, capture_output=True, text=True)
+                if "nothing to commit" in res.stdout:
+                    self.status_var.set("ข้อมูลในโฟลเดอร์ตรงกับ Git แล้ว (ไม่มีไฟล์เปลี่ยนแปลง)")
+                    self.after(0, lambda: messagebox.showinfo("อัปเดต Git", "ข้อมูลทั้งหมดในโฟลเดอร์ตรงกับบน GitHub อยู่แล้ว\n(ไม่มีไฟล์ใดเปลี่ยนแปลง)"))
+                    return
+
+                # Push to origin main
+                subprocess.run(["git", "push", "origin", "main"], cwd=BASE_DIR, capture_output=True, text=True, check=True)
+                self.status_var.set("อัปเดต Git ทั้งโฟลเดอร์ขึ้น GitHub เรียบร้อยแล้ว ✅")
+                self.after(0, lambda: messagebox.showinfo(
+                    "สำเร็จ",
+                    f"🚀 อัปเดต Git ทั้งโฟลเดอร์เรียบร้อยแล้ว!\n\nCommit: {summary}"
+                ))
+            except subprocess.CalledProcessError as err:
+                err_text = err.stderr if err.stderr else str(err)
+                self.status_var.set("เกิดข้อผิดพลาดในการ Push ขึ้น Git")
+                self.after(0, lambda: messagebox.showerror("Git Push Error", f"ไม่สามารถอัปเดต Git ได้:\n{err_text}"))
+            except Exception as e:
+                self.status_var.set(f"เกิดข้อผิดพลาด: {e}")
+                self.after(0, lambda: messagebox.showerror("Error", f"เกิดข้อผิดพลาด:\n{e}"))
+
+        threading.Thread(target=_push_worker, daemon=True).start()
+
+    def git_pull_replace_all(self):
+        """Fetch and replace all local files in the machine with remote Git data."""
+        confirm = messagebox.askyesno(
+            "ยืนยันการดึงข้อมูลจาก Git",
+            "⚠️ คำเตือน:\n\nการดึงข้อมูลนี้จะ 'แทนที่ไฟล์ในเครื่องทั้งโฟลเดอร์' ด้วยข้อมูลล่าสุดจาก GitHub\n\n(หากมีการแก้ไขที่ยังไม่ได้อัปเดตขึ้น Git ข้อมูลนั้นจะถูกแทนที่ทั้งหมด)\n\nคุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?",
+            icon="warning"
+        )
+        if not confirm:
             return
 
-        msg = f"บันทึกไฟล์เรียบร้อยแล้ว!\n- {os.path.basename(EXPORT_JSON_PATH)}\n- {os.path.basename(EXPORT_MD_PATH)}"
-        self.status_var.set(f"บันทึกสำเร็จเมื่อ {now.strftime('%H:%M:%S')}")
+        self.status_var.set("กำลังดึงข้อมูลและแทนที่ไฟล์ในเครื่องจาก GitHub...")
 
-        # 3. Optional Git Sync
-        if self.git_sync_var.get():
-            self.status_var.set("กำลังบันทึกและซิงก์ขึ้น GitHub...")
-            threading.Thread(target=self.run_git_sync, args=(now,), daemon=True).start()
-        else:
-            messagebox.showinfo("สำเร็จ", msg)
-
-    def run_git_sync(self, dt):
-        try:
-            summary = f"Update roster ({len(self.roster)} characters, {format_thai_date(dt)})"
-            # git add
-            rel_json = os.path.relpath(EXPORT_JSON_PATH, BASE_DIR)
-            rel_md = os.path.relpath(EXPORT_MD_PATH, BASE_DIR)
-            subprocess.run(["git", "add", rel_json, rel_md], cwd=BASE_DIR, check=True)
-            # git commit
-            res = subprocess.run(["git", "commit", "-m", summary], cwd=BASE_DIR, capture_output=True, text=True)
-            if "nothing to commit" in res.stdout:
-                self.status_var.set("ไฟล์เหมือนเดิม ไม่มีข้อมูลเปลี่ยนแปลงบน Git")
-                self.after(0, lambda: messagebox.showinfo("สำเร็จ", "บันทึกไฟล์แล้ว (ไม่มีการเปลี่ยนแปลงใหม่บน Git)"))
-                return
-
-            # git push
-            push_res = subprocess.run(["git", "push", "origin", "main"], cwd=BASE_DIR, capture_output=True, text=True, check=True)
-            self.status_var.set("ซิงก์ขึ้น GitHub เรียบร้อยแล้ว ✅")
-            self.after(0, lambda: messagebox.showinfo("สำเร็จ", f"บันทึกไฟล์และ Push ขึ้น GitHub เรียบร้อยแล้ว!\n\nCommit: {summary}"))
-        except Exception as err:
-            self.status_var.set(f"บันทึกไฟล์สำเร็จ แต่ Git Sync ผิดพลาด: {err}")
-            self.after(0, lambda: messagebox.showwarning("Git Sync Warning", f"บันทึกไฟล์สำเร็จแล้ว แต่ไม่สามารถ Push ขึ้น GitHub ได้:\n{err}"))
-
-    def git_pull(self):
-        def _pull():
+        def _pull_worker():
             try:
-                self.status_var.set("กำลังดึงข้อมูลล่าสุดจาก GitHub...")
-                res = subprocess.run(["git", "pull", "--rebase"], cwd=BASE_DIR, capture_output=True, text=True, check=True)
-                self.status_var.set("ดึงข้อมูลสำเร็จ")
-                self.after(0, lambda: (messagebox.showinfo("Git Pull", f"ดึงข้อมูลล่าสุดเรียบร้อย:\n{res.stdout}"), self.load_export_data()))
-            except Exception as e:
-                self.status_var.set("เกิดข้อผิดพลาดในการดึงข้อมูล Git")
-                self.after(0, lambda: messagebox.showerror("Git Pull Error", f"ไม่สามารถ Git Pull ได้:\n{e}"))
+                # 1. Fetch latest from origin
+                subprocess.run(["git", "fetch", "origin", "main"], cwd=BASE_DIR, capture_output=True, text=True, check=True)
+                # 2. Hard reset to origin/main (replaces all tracked files completely)
+                res_reset = subprocess.run(["git", "reset", "--hard", "origin/main"], cwd=BASE_DIR, capture_output=True, text=True, check=True)
+                # 3. Clean untracked files
+                subprocess.run(["git", "clean", "-fd"], cwd=BASE_DIR, capture_output=True, text=True)
 
-        threading.Thread(target=_pull, daemon=True).start()
+                self.status_var.set("ดึงข้อมูลและแทนที่ไฟล์ทั้งหมดจาก Git สำเร็จ ✅")
+                # Reload UI data from freshly replaced files
+                self.after(0, lambda: (
+                    self.load_export_data(),
+                    messagebox.showinfo(
+                        "สำเร็จ",
+                        f"⬇️ ดึงข้อมูลและแทนที่ไฟล์ในเครื่องทั้งโฟลเดอร์เรียบร้อยแล้ว!\n\nสถานะ:\n{res_reset.stdout.strip()}"
+                    )
+                ))
+            except subprocess.CalledProcessError as err:
+                err_text = err.stderr if err.stderr else str(err)
+                self.status_var.set("เกิดข้อผิดพลาดในการดึงข้อมูล Git")
+                self.after(0, lambda: messagebox.showerror("Git Pull Error", f"ไม่สามารถดึงข้อมูลจาก Git ได้:\n{err_text}"))
+            except Exception as e:
+                self.status_var.set(f"เกิดข้อผิดพลาด: {e}")
+                self.after(0, lambda: messagebox.showerror("Error", f"เกิดข้อผิดพลาด:\n{e}"))
+
+        threading.Thread(target=_pull_worker, daemon=True).start()
 
 
 if __name__ == "__main__":
