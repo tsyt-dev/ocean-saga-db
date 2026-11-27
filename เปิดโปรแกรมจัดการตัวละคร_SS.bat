@@ -7,7 +7,7 @@ echo ========================================================
 echo   Ocean Saga - SS Roster Manager (GUI)
 echo ========================================================
 echo กำลังเปิดโปรแกรมจัดการตัวละครระดับ SS...
-python roster_gui.py
+python "โปรแกรม\roster_gui.py"
 
 if %ERRORLEVEL% NEQ 0 (
     echo.

@@ -9,39 +9,57 @@
 ส่งลิงก์ด้านล่างให้ AI บนเครื่องใดก็ได้เพื่อโหลดบริบทและฐานข้อมูลทันที:
 
 - **ไฟล์บริบทหลัก (AI Context + ตัวละคร ID ปัจจุบัน + Real Tier List + แผนทีม):**
-  `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/Ocean_Saga_AI_Context_Export.md`
+  `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/ข้อมูล/Ocean_Saga_AI_Context_Export.md`
 - **ไฟล์บริบทแบบ JSON:**
-  `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/Ocean_Saga_AI_Context_Export.json`
+  `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/ข้อมูล/Ocean_Saga_AI_Context_Export.json`
 - **ฐานข้อมูลตัวละคร + สกิลแปลไทยทั้งหมด (237 ตัว):**
-  `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/characters_th.json`
+  `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/ข้อมูล/characters_th.json`
 - **ผลคำนวณคะแนนและดาเมจทั้งหมด:**
-  `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/analysis_results.json`
+  `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/ข้อมูล/analysis_results.json`
 
 ### ตัวอย่างคำสั่งเวลาเปิดแชท AI บนเครื่องอื่น
-> *"อ่านข้อมูลจาก `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/Ocean_Saga_AI_Context_Export.md` และใช้เป็นฐานข้อมูลหลักในการช่วยจัดทีม Ocean Saga ให้หน่อย"*
+> *"อ่านข้อมูลจาก `https://raw.githubusercontent.com/tsyt-dev/ocean-saga-db/main/ข้อมูล/Ocean_Saga_AI_Context_Export.md` และใช้เป็นฐานข้อมูลหลักในการช่วยจัดทีม Ocean Saga ให้หน่อย"*
 
 ---
 
-## รายการไฟล์ในคลังข้อมูลนี้
+## หมวดหมู่ไฟล์ในคลังข้อมูลนี้
+
+### 📁 ด้านหน้าโฟลเดอร์ (Root)
+- `เปิดโปรแกรมจัดการตัวละคร_SS.bat` — **ตัวรันโปรแกรม GUI หลัก** (ดับเบิลคลิกเปิดโปรแกรมทันทีบน Windows)
+- `README.md` — เอกสารแนะนำและการใช้งาน
+
+### 📁 หมวด `ข้อมูล/`
 | ไฟล์ | รายละเอียด |
 | :--- | :--- |
-| `Ocean_Saga_AI_Context_Export.md` | สรุปบริบทหลัก, ตัวละคร ID ปัจจุบัน, Real Tier List, ทีมแนะนำ (แนะนำให้อัปเดตไฟล์นี้เมื่อได้ตัวใหม่) |
+| `Ocean_Saga_AI_Context_Export.md` | สรุปบริบทหลัก, ตัวละคร ID ปัจจุบัน, Real Tier List, ทีมแนะนำ (ไฟล์หลักสำหรับ AI) |
 | `Ocean_Saga_AI_Context_Export.json` | ข้อมูลชุดเดียวกันในรูปแบบ JSON |
-| `characters_th.json` / `.csv` | ข้อมูลตัวละคร + สกิลแปลภาษาไทยครบ 237 ตัว |
-| `characters_en.json` / `.csv` | ข้อมูลต้นฉบับภาษาอังกฤษจาก `guragon.com/ocean-saga/characters` |
+| `characters_th.json` / `.csv` | ฐานข้อมูลตัวละคร + สกิลแปลภาษาไทยครบ 237 ตัว |
+| `characters_en.json` / `.csv` | ฐานข้อมูลต้นฉบับภาษาอังกฤษจาก `guragon.com/ocean-saga/characters` |
 | `analysis_results.json` | ผลคำนวณคะแนนความน่าปั้น 5 มิติ และ Effective Burst Damage |
+
+### 📁 หมวด `โปรแกรม/`
+| ไฟล์ | รายละเอียด |
+| :--- | :--- |
+| `roster_gui.py` | ซอร์สโค้ดโปรแกรม GUI จัดการตัวละครระดับ SS (เพิ่ม/แก้ไข/ลบ/บันทึก/Git Push) |
+
+### 📁 หมวด `ทีม/`
+| ไฟล์ | รายละเอียด |
+| :--- | :--- |
 | `Real_Tier_List.png` | ภาพ Real Tier List แพตช์ปัจจุบันของเซิร์ฟเวอร์ |
 | `Ocean_Saga_NewID_Team_TH.pdf` / `.png` | แผนทีมหลักแนะนำของ ID ปัจจุบัน (PDF 1 หน้า + รูป PNG) |
 | `Ocean_Saga_Tier_List_TH.pdf` | รายงานวิเคราะห์ & Tier List ฉบับเต็ม 237 ตัว |
-| `roster_gui.py` | โปรแกรม GUI จัดการตัวละครระดับ SS (เพิ่ม/แก้ไข/ลบ/บันทึกไฟล์อัตโนมัติ) |
-| `เปิดโปรแกรมจัดการตัวละคร_SS.bat` | ไฟล์ดับเบิลคลิกเพื่อเปิดโปรแกรม GUI ทันทีบน Windows |
+
+### 📁 หมวด `อื่นๆ/`
+| ไฟล์ | รายละเอียด |
+| :--- | :--- |
+| `Ocean_Saga_AI_AutoSync_HowTo_TH.pdf` | คู่มือและคำแนะนำการตั้งค่า Auto-Sync |
 
 ---
 
 ## การใช้งานโปรแกรมจัดการตัวละครระดับ SS (GUI)
-สามารถเปิดโปรแกรมได้ 2 วิธี:
-1. **ดับเบิลคลิกที่ไฟล์:** `เปิดโปรแกรมจัดการตัวละคร_SS.bat`
-2. **รันคำสั่ง Terminal:** `python roster_gui.py`
+สามารถเปิดโปรแกรมได้ง่ายๆ:
+1. **ดับเบิลคลิกที่ไฟล์หน้าโฟลเดอร์:** `เปิดโปรแกรมจัดการตัวละคร_SS.bat`
+2. **หรือรันคำสั่ง Terminal:** `python โปรแกรม\roster_gui.py`
 
 ### ฟังก์ชันหลักของโปรแกรม:
 - **กรองเฉพาะระดับ SS (122 ตัว):** เลือกตัวละครจาก Dropdown ที่คัดเฉพาะระดับ SS มาให้ ไม่ต้องค้นหาจาก 237 ตัว

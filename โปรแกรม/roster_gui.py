@@ -16,10 +16,12 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 # Paths
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "characters_th.json")
-EXPORT_JSON_PATH = os.path.join(BASE_DIR, "Ocean_Saga_AI_Context_Export.json")
-EXPORT_MD_PATH = os.path.join(BASE_DIR, "Ocean_Saga_AI_Context_Export.md")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(SCRIPT_DIR)  # Root folder of repository
+DATA_DIR = os.path.join(BASE_DIR, "ข้อมูล")
+DB_PATH = os.path.join(DATA_DIR, "characters_th.json")
+EXPORT_JSON_PATH = os.path.join(DATA_DIR, "Ocean_Saga_AI_Context_Export.json")
+EXPORT_MD_PATH = os.path.join(DATA_DIR, "Ocean_Saga_AI_Context_Export.md")
 
 TIER_ORDER = ["T0", "SSS", "S", "A", "B", "D", "Other"]
 TIER_COLORS = {
@@ -714,7 +716,9 @@ class OceanSagaRosterApp(tk.Tk):
         try:
             summary = f"Update roster ({len(self.roster)} characters, {format_thai_date(dt)})"
             # git add
-            subprocess.run(["git", "add", "Ocean_Saga_AI_Context_Export.json", "Ocean_Saga_AI_Context_Export.md"], cwd=BASE_DIR, check=True)
+            rel_json = os.path.relpath(EXPORT_JSON_PATH, BASE_DIR)
+            rel_md = os.path.relpath(EXPORT_MD_PATH, BASE_DIR)
+            subprocess.run(["git", "add", rel_json, rel_md], cwd=BASE_DIR, check=True)
             # git commit
             res = subprocess.run(["git", "commit", "-m", summary], cwd=BASE_DIR, capture_output=True, text=True)
             if "nothing to commit" in res.stdout:

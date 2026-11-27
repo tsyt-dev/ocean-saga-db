@@ -5,14 +5,24 @@
 
 ---
 
-## 1. โครงสร้างไฟล์ในโฟลเดอร์โปรเจกต์ (`OP_Cha`)
-- `characters_en.json` / `characters_en.csv` — ฐานข้อมูลตัวละคร + สกิลต้นฉบับครบ **237 ตัว (815 สกิล)** จาก `https://guragon.com/ocean-saga/characters`
-- `characters_th.json` / `characters_th.csv` — ฐานข้อมูลตัวละคร + สกิล **แปลภาษาไทยครบทั้ง 237 ตัว**
-- `analysis_results.json` — ผลคำนวณคะแนนความน่าปั้น 5 มิติ (เต็ม 100) และ Effective Burst Damage ของทั้ง 237 ตัว
-- `Real_Tier_List.png` — ภาพเทียร์ลิสต์ที่ผู้เล่นในเซิร์ฟเวอร์ใช้กันจริง (แพตช์ `Ace & Sabo` + `Boa Lilith`)
-- `Ocean_Saga_NewID_Team_TH.pdf` & `Ocean_Saga_NewID_Team_TH.png` — แผนทีมหลักแนะนำของ ID ใหม่ (PDF 1 หน้า + รูป PNG)
-- `Ocean_Saga_Tier_List_TH.pdf` — รายงานวิเคราะห์ & Tier List ฉบับเต็ม 237 ตัว (PDF)
-- `Ocean_Saga_AI_Context_Export.md` & `Ocean_Saga_AI_Context_Export.json` — ไฟล์สรุปบริบทสำหรับนำเข้าให้ AI เครื่องอื่น
+## 1. โครงสร้างไฟล์ในโฟลเดอร์โปรเจกต์ (`ocean-saga-db`)
+- **โฟลเดอร์ `ข้อมูล/`:**
+  - `characters_en.json` / `characters_en.csv` — ฐานข้อมูลตัวละคร + สกิลต้นฉบับครบ **237 ตัว (815 สกิล)** จาก `https://guragon.com/ocean-saga/characters`
+  - `characters_th.json` / `characters_th.csv` — ฐานข้อมูลตัวละคร + สกิล **แปลภาษาไทยครบทั้ง 237 ตัว**
+  - `analysis_results.json` — ผลคำนวณคะแนนความน่าปั้น 5 มิติ (เต็ม 100) และ Effective Burst Damage ของทั้ง 237 ตัว
+  - `Ocean_Saga_AI_Context_Export.md` & `Ocean_Saga_AI_Context_Export.json` — ไฟล์สรุปบริบทสำหรับนำเข้าให้ AI เครื่องอื่น
+- **โฟลเดอร์ `ทีม/`:**
+  - `Real_Tier_List.png` — ภาพเทียร์ลิสต์ที่ผู้เล่นในเซิร์ฟเวอร์ใช้กันจริง (แพตช์ `Ace & Sabo` + `Boa Lilith`)
+  - `Ocean_Saga_NewID_Team_TH.pdf` & `Ocean_Saga_NewID_Team_TH.png` — แผนทีมหลักแนะนำของ ID ใหม่ (PDF 1 หน้า + รูป PNG)
+  - `Ocean_Saga_Tier_List_TH.pdf` — รายงานวิเคราะห์ & Tier List ฉบับเต็ม 237 ตัว (PDF)
+- **โฟลเดอร์ `โปรแกรม/`:**
+  - `roster_gui.py` — โปรแกรม GUI จัดการตัวละครระดับ SS (เพิ่ม/แก้ไข/ลบ และบันทึกอัปเดตไฟล์อัตโนมัติ)
+- **โฟลเดอร์ `อื่นๆ/`:**
+  - `Ocean_Saga_AI_AutoSync_HowTo_TH.pdf` — คู่มือการตั้งค่า Auto-Sync
+- **ด้านหน้าโฟลเดอร์หลัก (Root):**
+  - `เปิดโปรแกรมจัดการตัวละคร_SS.bat` — ดับเบิลคลิกเพื่อเปิดโปรแกรม GUI ได้ทันที
+  - `README.md` — คู่มือและลิงก์สำหรับ AI ทั่วโลก
+
 
 ---
 
