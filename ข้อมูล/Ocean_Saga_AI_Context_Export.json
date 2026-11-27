@@ -1,6 +1,6 @@
 {
   "export_version": "2.0",
-  "exported_at": "2026-11-27T22:35:43.658036",
+  "exported_at": "2026-11-27T23:54:48.229711",
   "account_label": "New ID (Updated 2026-11-27)",
   "game": "Ocean Saga",
   "source_database": "https://guragon.com/ocean-saga/characters",
@@ -118,7 +118,7 @@
   "user_owned_characters": [
     {
       "name": "Boa Lilith",
-      "stars": 6,
+      "stars": 9,
       "count": 1,
       "tier": "T0",
       "extra_5star_copies": 1
@@ -180,24 +180,24 @@
       "tier": "A"
     },
     {
-      "name": "Carina",
-      "stars": 5,
-      "count": 1,
-      "tier": "B"
-    },
-    {
       "name": "Doflamingo",
-      "stars": 5,
+      "stars": 6,
       "count": 1,
       "tier": "B",
       "extra_5star_copies": 1
     },
     {
       "name": "Kid Wano",
-      "stars": 5,
+      "stars": 6,
       "count": 1,
       "tier": "B",
       "extra_5star_copies": 1
+    },
+    {
+      "name": "Carina",
+      "stars": 5,
+      "count": 1,
+      "tier": "B"
     },
     {
       "name": "King",
@@ -219,6 +219,18 @@
       "tier": "B"
     },
     {
+      "name": "Carrot",
+      "stars": 6,
+      "count": 1,
+      "tier": "D"
+    },
+    {
+      "name": "Hancock",
+      "stars": 6,
+      "count": 1,
+      "tier": "D"
+    },
+    {
       "name": "Aokiji",
       "stars": 5,
       "count": 1,
@@ -237,19 +249,7 @@
       "tier": "D"
     },
     {
-      "name": "Carrot",
-      "stars": 5,
-      "count": 2,
-      "tier": "D"
-    },
-    {
       "name": "Cracker",
-      "stars": 5,
-      "count": 1,
-      "tier": "D"
-    },
-    {
-      "name": "Hancock",
       "stars": 5,
       "count": 1,
       "tier": "D"

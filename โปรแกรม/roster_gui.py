@@ -197,21 +197,41 @@ class CharacterDialog(tk.Toplevel):
                 return
 
         tier = self.real_tier_map.get(name, "Other")
-        stars = self.stars_var.get()
-        count = self.count_var.get()
-        extra = self.extra_var.get()
+        
+        try:
+            stars = int(self.stars_var.get())
+        except (ValueError, TypeError):
+            try:
+                stars = int(self.stars_spin.get())
+            except (ValueError, TypeError):
+                stars = 5
+
+        try:
+            count = int(self.count_var.get())
+        except (ValueError, TypeError):
+            try:
+                count = int(self.count_spin.get())
+            except (ValueError, TypeError):
+                count = 1
+
+        try:
+            extra = int(self.extra_var.get())
+        except (ValueError, TypeError):
+            try:
+                extra = int(self.extra_spin.get())
+            except (ValueError, TypeError):
+                extra = 0
+
         note = self.note_var.get().strip()
 
         self.result = {
             "name": name,
             "stars": int(stars),
             "count": int(count),
-            "tier": tier
+            "tier": tier,
+            "extra_5star_copies": int(extra),
+            "note": note
         }
-        if extra > 0:
-            self.result["extra_5star_copies"] = int(extra)
-        if note:
-            self.result["note"] = note
 
         self.destroy()
 
@@ -560,11 +580,32 @@ class OceanSagaRosterApp(tk.Tk):
             existing = next((c for c in self.roster if c["name"] == new_char["name"]), None)
             if existing:
                 if messagebox.askyesno("พบตัวละครเดิม", f"'{new_char['name']}' มีอยู่ในรายการอยู่แล้ว ต้องการอัปเดตข้อมูลทับหรือไม่?"):
-                    existing.update(new_char)
+                    existing["stars"] = new_char["stars"]
+                    existing["count"] = new_char["count"]
+                    existing["tier"] = new_char["tier"]
+                    if new_char.get("extra_5star_copies", 0) > 0:
+                        existing["extra_5star_copies"] = new_char["extra_5star_copies"]
+                    else:
+                        existing.pop("extra_5star_copies", None)
+
+                    if new_char.get("note"):
+                        existing["note"] = new_char["note"]
+                    else:
+                        existing.pop("note", None)
                 else:
                     return
             else:
-                self.roster.append(new_char)
+                clean_char = {
+                    "name": new_char["name"],
+                    "stars": new_char["stars"],
+                    "count": new_char["count"],
+                    "tier": new_char["tier"]
+                }
+                if new_char.get("extra_5star_copies", 0) > 0:
+                    clean_char["extra_5star_copies"] = new_char["extra_5star_copies"]
+                if new_char.get("note"):
+                    clean_char["note"] = new_char["note"]
+                self.roster.append(clean_char)
 
             self.apply_filter()
             self.update_stats()
@@ -586,7 +627,19 @@ class OceanSagaRosterApp(tk.Tk):
         dlg = CharacterDialog(self, self.ss_db, self.real_tier_map, existing_data=char_data)
         self.wait_window(dlg)
         if dlg.result:
-            char_data.update(dlg.result)
+            char_data["stars"] = dlg.result["stars"]
+            char_data["count"] = dlg.result["count"]
+            char_data["tier"] = dlg.result["tier"]
+            if dlg.result.get("extra_5star_copies", 0) > 0:
+                char_data["extra_5star_copies"] = dlg.result["extra_5star_copies"]
+            else:
+                char_data.pop("extra_5star_copies", None)
+
+            if dlg.result.get("note"):
+                char_data["note"] = dlg.result["note"]
+            else:
+                char_data.pop("note", None)
+
             self.apply_filter()
             self.update_stats()
             self.auto_save()

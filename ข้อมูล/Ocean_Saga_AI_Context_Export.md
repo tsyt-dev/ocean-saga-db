@@ -47,12 +47,12 @@
 ---
 
 ## 4. รายชื่อตัวละครของ ID ใหม่ปัจจุบัน (อัปเดต 27 พ.ย. 2026)
-- **ระดับ T0:** `Boa Lilith` (**6 ดาว** + ซ้ำ **5 ดาว 1 ตัว** พร้อมขึ้นดาวต่อ!)
+- **ระดับ T0:** `Boa Lilith` (**9 ดาว** + ซ้ำ **5 ดาว 1 ตัว** พร้อมขึ้นดาวต่อ!)
 - **ระดับ SSS:** `Ace & Sabo` (**6 ดาว** + ซ้ำ **5 ดาว 2 ตัว** พร้อมขึ้นดาวต่อ!)
 - **ระดับ S (5 ตัว):** `Jinbe Wano` (6 ดาว +ซ้ำ1), `Kaido Hybrid` (6 ดาว), `Brook Wano` (5 ดาว), `Luffy Wano` (5 ดาว), `Whitebeard / หนวดขาว` (5 ดาว)
 - **ระดับ A (3 ตัว):** `Law N.W` (5 ดาว), `Usop Wano` (5 ดาว), `Uta` (5 ดาว)
-- **ระดับ B (6 ตัว):** `Carina` (5 ดาว), `Doflamingo` (5 ดาว +ซ้ำ1), `Kid Wano` (5 ดาว +ซ้ำ1), `King` (5 ดาว +ซ้ำ1), `Nekomamushi` (5 ดาว), `Usopp N.W` (5 ดาว)
-- **ระดับ D (17 ชนิด / 19 ตัว):** `Aokiji` (5★), `Benn Beckman` (5★), `Burgess` (5★), `Carrot` (5★ x2), `Cracker` (5★), `Hancock` (5★), `Ichiji` (5★), `Jack` (5★), `Kaido` (5★), `Kizaru` (5★), `Kuma` (5★ x2), `Magellan` (5★), `Mihawk` (5★), `Queen` (5★), `Sabo` (5★), `Sanji N.W` (5★), `Zoro N.W` (5★)
+- **ระดับ B (6 ตัว):** `Carina` (5 ดาว), `Doflamingo` (6 ดาว +ซ้ำ1), `Kid Wano` (6 ดาว +ซ้ำ1), `King` (5 ดาว +ซ้ำ1), `Nekomamushi` (5 ดาว), `Usopp N.W` (5 ดาว)
+- **ระดับ D (17 ชนิด / 18 ตัว):** `Aokiji` (5★), `Benn Beckman` (5★), `Burgess` (5★), `Cracker` (5★), `Hancock` (6★), `Ichiji` (5★), `Jack` (5★), `Kaido` (5★), `Kizaru` (5★), `Kuma` (5★ x2), `Magellan` (5★), `Mihawk` (5★), `Queen` (5★), `Sabo` (5★), `Sanji N.W` (5★), `Zoro N.W` (5★), `Carrot` (6★)
 
 ---
 
