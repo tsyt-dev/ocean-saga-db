@@ -1,16 +1,18 @@
 @echo off
-chcp 65001 > nul
-title Ocean Saga - SS Roster Manager
 cd /d "%~dp0"
+title Ocean Saga - SS Roster Manager
 
-echo ========================================================
-echo   Ocean Saga - SS Roster Manager (GUI)
-echo ========================================================
-echo กำลังเปิดโปรแกรมจัดการตัวละครระดับ SS...
-python "โปรแกรม\roster_gui.py"
-
-if %ERRORLEVEL% NEQ 0 (
-    echo.
-    echo [เกิดข้อผิดพลาด] ไม่สามารถเปิดโปรแกรมได้ กรุณาตรวจสอบว่าติดตั้ง Python 3 แล้ว
-    pause
+where python >nul 2>nul
+if %ERRORLEVEL% EQU 0 (
+    start "" python "โปรแกรม\roster_gui.py"
+    exit /b 0
 )
+
+where py >nul 2>nul
+if %ERRORLEVEL% EQU 0 (
+    start "" py "โปรแกรม\roster_gui.py"
+    exit /b 0
+)
+
+echo [ERROR] Python not found in system PATH.
+pause

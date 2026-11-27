@@ -317,7 +317,7 @@ class OceanSagaRosterApp(tk.Tk):
         # Search Box
         ttk.Label(toolbar, text="🔍 ค้นหา:", font=self.bold_font).pack(side=tk.LEFT, padx=(0, 4))
         self.search_var = tk.StringVar()
-        self.search_var.trace("w", self.apply_filter)
+        self.search_var.trace_add("write", lambda *args: self.apply_filter())
         search_entry = ttk.Entry(toolbar, textvariable=self.search_var, width=22, font=self.default_font)
         search_entry.pack(side=tk.LEFT, padx=(0, 15))
 
