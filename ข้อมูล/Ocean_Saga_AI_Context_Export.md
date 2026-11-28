@@ -48,11 +48,11 @@
 
 ## 4. รายชื่อตัวละครของ ID ใหม่ปัจจุบัน (อัปเดต 28 พ.ย. 2026)
 - **ระดับ T0:** `Boa Lilith` (**10 ดาว** + ซ้ำ **5 ดาว 2 ตัว** พร้อมขึ้นดาวต่อ!)
-- **ระดับ SSS:** `Ace & Sabo` (**6 ดาว** + ซ้ำ **5 ดาว 5 ตัว** พร้อมขึ้นดาวต่อ!), `Shirahoshi` (**5 ดาว**)
-- **ระดับ S (6 ตัว):** `Jinbe Wano` (6 ดาว +ซ้ำ1), `Kaido Hybrid` (7 ดาว +ซ้ำ4), `Brook Wano` (5 ดาว +ซ้ำ1), `Luffy Wano` (5 ดาว +ซ้ำ1), `Whitebeard / หนวดขาว` (5 ดาว +ซ้ำ1), `Yamato` (5 ดาว)
-- **ระดับ A (6 ตัว):** `Law N.W` (5 ดาว), `Usop Wano` (5 ดาว), `Uta` (5 ดาว +ซ้ำ1), `Nami Wano` (5 ดาว), `Blackbeard` (5 ดาว), `Chopper N.W` (5 ดาว)
-- **ระดับ B (8 ตัว):** `Doflamingo` (6 ดาว), `Kid Wano` (6 ดาว), `Carina` (5 ดาว), `King` (5 ดาว +ซ้ำ1), `Nekomamushi` (5 ดาว), `Usopp N.W` (5 ดาว), `Kin emon` (5 ดาว +ซ้ำ1), `Big Mom` (5 ดาว)
-- **ระดับ D (19 ตัว):** `Carrot` (6★), `Hancock` (5★ +ซ้ำ3), `Aokiji` (5★ +ซ้ำ3), `Benn Beckman` (5★), `Cracker` (5★), `Ichiji` (5★), `Jack` (5★), `Kaido` (5★ +ซ้ำ1), `Kizaru` (5★), `Magellan` (5★ +ซ้ำ2), `Queen` (5★ +ซ้ำ1), `Sabo` (5★), `Sanji N.W` (5★ +ซ้ำ1), `Zoro N.W` (5★ +ซ้ำ1), `Akainu` (5★), `Franky N.W` (5★), `Luffy SM` (5★ +ซ้ำ1), `Enel` (5★ +ซ้ำ1), `Raizo` (5★)
+- **ระดับ SSS:** `Ace & Sabo` (**6 ดาว** + ซ้ำ **5 ดาว 5 ตัว** พร้อมขึ้นดาวต่อ!), `Shirahoshi` (**6 ดาว**)
+- **ระดับ S (6 ตัว):** `Kaido Hybrid` (7 ดาว +ซ้ำ4), `Jinbe Wano` (6 ดาว +ซ้ำ1), `Brook Wano` (5 ดาว), `Luffy Wano` (5 ดาว +ซ้ำ1), `Whitebeard / หนวดขาว` (5 ดาว +ซ้ำ1), `Yamato` (5 ดาว)
+- **ระดับ A (6 ตัว):** `Blackbeard` (5 ดาว), `Chopper N.W` (5 ดาว), `Law N.W` (5 ดาว), `Nami Wano` (5 ดาว), `Usop Wano` (5 ดาว), `Uta` (5 ดาว +ซ้ำ1)
+- **ระดับ B (8 ตัว):** `Doflamingo` (6 ดาว), `Kid Wano` (6 ดาว), `Big Mom` (5 ดาว), `Carina` (5 ดาว), `Kin emon` (5 ดาว +ซ้ำ1), `King` (5 ดาว +ซ้ำ1), `Nekomamushi` (5 ดาว), `Usopp N.W` (5 ดาว)
+- **ระดับ D (21 ตัว):** `Carrot` (6★), `Akainu` (5★), `Aokiji` (5★ +ซ้ำ3), `Benn Beckman` (5★), `Cracker` (5★), `Enel` (5★ +ซ้ำ1), `Franky N.W` (5★), `Hancock` (5★ +ซ้ำ3), `Ichiji` (5★), `Jack` (5★), `Kaido` (5★ +ซ้ำ1), `Kizaru` (5★), `Luffy SM` (5★ +ซ้ำ1), `Magellan` (5★ +ซ้ำ2), `Queen` (5★ +ซ้ำ1), `Raizo` (5★), `Sabo` (5★), `Sanji N.W` (5★ +ซ้ำ1), `Zoro N.W` (5★), `Sengoku` (5★), `Brook N.W` (5★)
 - **ระดับ Other (2 ตัว):** `Burgess` (5 ดาว +ซ้ำ1), `Kuma` (5 ดาว +ซ้ำ1)
 
 ---

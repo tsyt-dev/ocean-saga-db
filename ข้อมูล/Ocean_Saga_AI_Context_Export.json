@@ -1,6 +1,6 @@
 {
   "export_version": "2.0",
-  "exported_at": "2026-11-28T01:52:10.876304",
+  "exported_at": "2026-11-28T16:54:31.418054",
   "account_label": "New ID (Updated 2026-11-27)",
   "game": "Ocean Saga",
   "source_database": "https://guragon.com/ocean-saga/characters",
@@ -132,7 +132,7 @@
     },
     {
       "name": "Shirahoshi",
-      "stars": 5,
+      "stars": 6,
       "count": 1,
       "tier": "SSS"
     },
@@ -154,8 +154,7 @@
       "name": "Brook Wano",
       "stars": 5,
       "count": 1,
-      "tier": "S",
-      "extra_5star_copies": 1
+      "tier": "S"
     },
     {
       "name": "Luffy Wano",
@@ -290,6 +289,12 @@
       "tier": "D"
     },
     {
+      "name": "Brook N.W",
+      "stars": 5,
+      "count": 1,
+      "tier": "D"
+    },
+    {
       "name": "Cracker",
       "stars": 5,
       "count": 1,
@@ -381,11 +386,16 @@
       "extra_5star_copies": 1
     },
     {
+      "name": "Sengoku",
+      "stars": 5,
+      "count": 1,
+      "tier": "D"
+    },
+    {
       "name": "Zoro N.W",
       "stars": 5,
       "count": 1,
-      "tier": "D",
-      "extra_5star_copies": 1
+      "tier": "D"
     },
     {
       "name": "Burgess",
